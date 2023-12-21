@@ -52,20 +52,51 @@ public class ColorPuzzle_2 : MonoBehaviour
 
     private IEnumerator SimonSaysLightUpObjects()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         for(int i = 0; i < Button1RepeatEmission; ++i)
         {
             Button1Material.EnableKeyword("_EMISSION");
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
 
             Button1Material.DisableKeyword("_EMISSION");
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
         }
 
-        // Copy Paste For Loop In here
+        for (int i = 0; i < Button2RepeatEmission; ++i)
+        {
+            Button2Material.EnableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+
+            Button2Material.DisableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        for (int i = 0; i < Button3RepeatEmission; ++i)
+        {
+            Button3Material.EnableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+
+            Button3Material.DisableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        for (int i = 0; i < Button4RepeatEmission; ++i)
+        {
+            Button4Material.EnableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+
+            Button4Material.DisableKeyword("_EMISSION");
+
+            yield return new WaitForSeconds(0.5f);
+        }
 
 
     }
