@@ -9,6 +9,8 @@ public class OpenWhenInCloseProximity : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        GetComponent<SphereCollider>().isTrigger = true;
     }
 
     private void OnTriggerEnter(Collider Other)
