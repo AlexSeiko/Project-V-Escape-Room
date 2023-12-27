@@ -1,12 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPuzzleManager : MonoBehaviour
+public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
 {
     [SerializeField] private List<ChestButtons> Buttons = new List<ChestButtons>();
     [SerializeField] private List<EbuttonTypes> CorrectButtons = new List<EbuttonTypes>();
 
+    private bool IsPuzzleComplete = false;
+    
     // Update is called once per frame
     void Update()
     {
@@ -46,8 +47,13 @@ public class ButtonPuzzleManager : MonoBehaviour
             }
 
             // Do Opening Of Chest Lid
-
+            IsPuzzleComplete = true;
 
         }
+    }
+
+    public bool IsComplete()
+    {
+        return IsPuzzleComplete;
     }
 }
