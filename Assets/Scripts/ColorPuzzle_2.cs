@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorPuzzle_2 : MonoBehaviour, PuzzleInterface
+// NOTE: THIS IS ACTUALLY NOT A PUZZLE! JUST TOO LAZY TO CHANGE THE NAMING FOR NOW!
+public class ColorPuzzle_2 : MonoBehaviour
 {
     [SerializeField] private GameObject Button1;
     [SerializeField] private GameObject Button2;
@@ -21,10 +22,6 @@ public class ColorPuzzle_2 : MonoBehaviour, PuzzleInterface
 
     private Coroutine SimonSaysCoroutine;
     
-    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
-
-    private bool IsPuzzleComplete = false;
-
     private void Start()
     {
         List<Material> materials = new List<Material>();
@@ -101,10 +98,5 @@ public class ColorPuzzle_2 : MonoBehaviour, PuzzleInterface
         }
 
 
-    }
-
-    public bool IsComplete()
-    {
-        return IsPuzzleComplete;
     }
 }
