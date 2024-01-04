@@ -17274,6 +17274,7 @@ GameObject:
   - component: {fileID: 6300718006582039293}
   - component: {fileID: 6687910152629347943}
   - component: {fileID: 4751766190254602923}
+  - component: {fileID: 6687910152629347944}
   m_Layer: 0
   m_Name: Table_drawer_2
   m_TagString: Untagged
@@ -30100,6 +30101,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2243776366980164617}
   m_Mesh: {fileID: 1441269473554391270, guid: 4b7a89e4aabb26741b910b9f055e6128, type: 3}
+--- !u!114 &6687910152629347944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243776366980164617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cb6400cb0c9744ab2bfa6571fe6d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalLocation: {x: -0.052, y: 0.782, z: 0.334}
 --- !u!23 &6688621640617163345
 MeshRenderer:
   m_ObjectHideFlags: 0
