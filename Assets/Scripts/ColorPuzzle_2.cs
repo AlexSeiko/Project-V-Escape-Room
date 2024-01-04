@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorPuzzle_2 : MonoBehaviour
+public class ColorPuzzle_2 : MonoBehaviour, PuzzleInterface
 {
     [SerializeField] private GameObject Button1;
     [SerializeField] private GameObject Button2;
@@ -20,6 +20,10 @@ public class ColorPuzzle_2 : MonoBehaviour
     private Material Button4Material;
 
     private Coroutine SimonSaysCoroutine;
+    
+    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
+
+    private bool IsPuzzleComplete = false;
 
     private void Start()
     {
@@ -38,8 +42,6 @@ public class ColorPuzzle_2 : MonoBehaviour
         materials.Clear();
         Button4.GetComponent<MeshRenderer>().GetMaterials(materials);
         Button4Material = materials[0];
-
-        Interact();
     }
 
     public void Interact()
@@ -99,5 +101,10 @@ public class ColorPuzzle_2 : MonoBehaviour
         }
 
 
+    }
+
+    public bool IsComplete()
+    {
+        return IsPuzzleComplete;
     }
 }

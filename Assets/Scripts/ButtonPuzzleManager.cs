@@ -1,5 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[Serializable]
+public class OnPuzzleCompletedEvent : UnityEvent
+{ }
 
 public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
 {
@@ -7,6 +13,12 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
     [SerializeField] private List<EbuttonTypes> CorrectButtons = new List<EbuttonTypes>();
 
     private bool IsPuzzleComplete = false;
+    
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private string AnimatorStateToPlayOnCompletion = "OpenLid";
+    [SerializeField] private AudioSource Source = null;
+    
+    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
     
     // Update is called once per frame
     void Update()
@@ -48,7 +60,10 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
 
             // Do Opening Of Chest Lid
             IsPuzzleComplete = true;
-
+            
+            animator.Play(AnimatorStateToPlayOnCompletion);
+            
+            Source.Play();
         }
     }
 
