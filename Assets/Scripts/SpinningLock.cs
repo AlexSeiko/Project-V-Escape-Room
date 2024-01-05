@@ -26,8 +26,8 @@ public class SpinningLock : MonoBehaviour
         HalfLockAngleSegment = LockAngleSegments / 2.0f;
     }
 
-    //private void Update()
-    //{
-    //    Debug.Log(GetLockNumber());
-    //}
+    private void Update()
+    {
+        Debug.Log(GetLockNumber());
+    }
 }

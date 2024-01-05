@@ -24,10 +24,10 @@ public class DrawerPullingState : MonoBehaviour
         RangeMax = Vector3.Distance(InitialLocation, FinalLocation);
     }
 
-    private void Update()
-    {
-        Debug.Log(GetDrawerState());
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(GetDrawerState());
+    //}
 
     private EDrawerOpenState GetDrawerState()
     {
