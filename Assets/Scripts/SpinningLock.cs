@@ -9,7 +9,7 @@ public class SpinningLock : MonoBehaviour
     
     public int GetLockNumber()
     {
-        float EulerAngle = transform.localRotation.eulerAngles.y;
+        float EulerAngle = transform.localRotation.eulerAngles.z;
         if (EulerAngle > 360)
             EulerAngle -= 360;
 
