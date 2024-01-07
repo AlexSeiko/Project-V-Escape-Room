@@ -6,11 +6,10 @@ public class SpinningLock : MonoBehaviour
 {
     private float LockSegments = 9.0f;
     private float LockAngleSegments = 0.0f;
-    private float HalfLockAngleSegment = 0.0f;
     
     public int GetLockNumber()
     {
-        float EulerAngle = transform.localRotation.eulerAngles.z;
+        float EulerAngle = transform.localRotation.eulerAngles.y;
         if (EulerAngle > 360)
             EulerAngle -= 360;
 
@@ -23,7 +22,6 @@ public class SpinningLock : MonoBehaviour
     private void Start()
     {
         LockAngleSegments = 360.0f / LockSegments;
-        HalfLockAngleSegment = LockAngleSegments / 2.0f;
     }
 
     private void Update()
