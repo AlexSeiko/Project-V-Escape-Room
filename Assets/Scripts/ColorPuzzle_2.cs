@@ -97,6 +97,6 @@ public class ColorPuzzle_2 : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-
+        SimonSaysCoroutine = null;
     }
 }
