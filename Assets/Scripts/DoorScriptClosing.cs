@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DoorScript : MonoBehaviour
+public class DoorScriptClosing : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Animator animator;
@@ -21,7 +21,7 @@ public class DoorScript : MonoBehaviour
         if (animator)
         {
             animator.enabled = true;
-            animator.Play("Door Opening");
+            animator.Play("Door Closing");
         }
             
 

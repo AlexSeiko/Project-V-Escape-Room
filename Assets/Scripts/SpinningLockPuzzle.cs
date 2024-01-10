@@ -23,7 +23,6 @@ public class SpinningLockPuzzle : MonoBehaviour, PuzzleInterface
         {
             IsPuzzleComplete = true;
             
-            Debug.Log("Completed!");
 
             // Do Whatever you need to do here.
             if(animator)
