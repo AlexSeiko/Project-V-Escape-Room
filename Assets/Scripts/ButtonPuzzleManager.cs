@@ -13,13 +13,13 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
     [SerializeField] private List<EbuttonTypes> CorrectButtons = new List<EbuttonTypes>();
 
     private bool IsPuzzleComplete = false;
-    
+
     [SerializeField] private Animator animator = null;
     [SerializeField] private string AnimatorStateToPlayOnCompletion = "OpenLid";
     [SerializeField] private AudioSource Source = null;
-    
+
     [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -30,14 +30,14 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
             var button = Buttons[i];
             if (button != null)
             {
-                if(button.IsPressed)
+                if (button.IsPressed)
                 {
                     ActivatedButtons.Add(button);
                 }
             }
         }
 
-        if(ActivatedButtons.Count == CorrectButtons.Count)
+        if (ActivatedButtons.Count == CorrectButtons.Count)
         {
             for (int i = 0; i < ActivatedButtons.Count; i++)
             {
@@ -58,11 +58,18 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
                 }
             }
 
+            if (ActivatedButtons.Count >= 3)
+            {
+                // Reset Board
+                CorrectButtons.Clear();
+                ActivatedButtons.Clear();
+            }
+
             // Do Opening Of Chest Lid
             IsPuzzleComplete = true;
-            
+
             animator.Play(AnimatorStateToPlayOnCompletion);
-            
+
             Source.Play();
         }
     }

@@ -1,18 +1,27 @@
+using PuzzleEvents;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
+using static Unity.VisualScripting.Member;
 
 public class BattleshipsPuzzle : MonoBehaviour, PuzzleInterface
 {
     [SerializeField] private List<GameObject> AllCubes = new List<GameObject>();
-    
     [SerializeField] private List<GameObject> ValidObjects = new List<GameObject>();
+
+    private bool IsPuzzleComplete = false;
+
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private string AnimatorStateToPlayOnCompletion = "OpenLid";
+    [SerializeField] private AudioSource Source = null;
 
     private List<GameObject> SuccessfulAttempts = new List<GameObject>();
     private List<GameObject> FailedAttempts = new List<GameObject>();
 
-    private bool IsPuzzleComplete = false;
+    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
 
     public void OnPlayerTouchedObject(GameObject TouchedObject)
     {
@@ -51,6 +60,12 @@ public class BattleshipsPuzzle : MonoBehaviour, PuzzleInterface
 
             }
         }
+
+        IsPuzzleComplete = true;
+
+        animator.Play(AnimatorStateToPlayOnCompletion);
+
+        Source.Play();
     }
 
     public bool IsComplete()
