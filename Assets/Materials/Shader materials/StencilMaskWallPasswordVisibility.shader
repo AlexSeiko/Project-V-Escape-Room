@@ -1,4 +1,4 @@
-Shader "WallPasswordVisibility"
+Shader "StencilMaskWallPasswordVisibility"
 {
 	Properties
 	{
@@ -10,7 +10,6 @@ Shader "WallPasswordVisibility"
 		{
 			"RenderType" = "Opaque"
 			"RenderPipeline" = "UniversalPipeline"
-			"Queue" = "Geometry"
 		}
 
 		Pass
@@ -20,11 +19,12 @@ Shader "WallPasswordVisibility"
 
 			Stencil 
 			{
-				Ref [_StencilID]
+				Ref 1
 				Comp Always
 				Pass Replace
-				Fail Keep
 			}
 		}
+		
+		
 	}
 }
