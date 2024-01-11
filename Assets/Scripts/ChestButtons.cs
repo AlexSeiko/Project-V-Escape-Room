@@ -13,4 +13,9 @@ public class ChestButtons : MonoBehaviour
 
     public bool IsPressed { get; set; }
 
+    public void PressButton()
+    {
+        IsPressed = true;
+    }
+
 }
