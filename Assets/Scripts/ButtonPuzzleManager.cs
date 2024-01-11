@@ -68,9 +68,9 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
             // Do Opening Of Chest Lid
             IsPuzzleComplete = true;
 
-            animator.Play(AnimatorStateToPlayOnCompletion);
+            animator?.Play(AnimatorStateToPlayOnCompletion);
 
-            Source.Play();
+            Source?.Play();
         }
     }
 
