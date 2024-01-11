@@ -18,8 +18,13 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
     [SerializeField] private string AnimatorStateToPlayOnCompletion = "OpenLid";
     [SerializeField] private AudioSource Source = null;
 
-    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
+    [SerializeField] private GameObject Key;
 
+
+    public void Start()
+    {
+        Key?.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -76,6 +81,10 @@ public class ButtonPuzzleManager : MonoBehaviour, PuzzleInterface
 
     public bool IsComplete()
     {
+        if (Key != null)
+        {
+            Key.SetActive(true);
+        }
         return IsPuzzleComplete;
     }
 }
