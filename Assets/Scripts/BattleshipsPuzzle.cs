@@ -14,15 +14,17 @@ public class BattleshipsPuzzle : MonoBehaviour, PuzzleInterface
 
     private bool IsPuzzleComplete = false;
 
-    [SerializeField] private Animator animator = null;
-    [SerializeField] private string AnimatorStateToPlayOnCompletion = "OpenLid";
     [SerializeField] private AudioSource Source = null;
 
     private List<GameObject> SuccessfulAttempts = new List<GameObject>();
     private List<GameObject> FailedAttempts = new List<GameObject>();
 
-    [SerializeField] private OnPuzzleCompletedEvent OnPuzzleCompleted;
+    [SerializeField] private GameObject Magnifier;
 
+    private void Start()
+    {
+        Magnifier?.SetActive(false);
+    }
     public void OnPlayerTouchedObject(GameObject TouchedObject)
     {
         if(SuccessfulAttempts.Contains(TouchedObject) || FailedAttempts.Contains(TouchedObject))
@@ -63,13 +65,18 @@ public class BattleshipsPuzzle : MonoBehaviour, PuzzleInterface
 
         IsPuzzleComplete = true;
 
-        animator.Play(AnimatorStateToPlayOnCompletion);
-
-        Source.Play();
     }
 
     public bool IsComplete()
     {
+        if (Source)
+            Source.Play();
+
+        if (Magnifier != null)
+        {
+            Magnifier.SetActive(true);
+        }
+
         return IsPuzzleComplete;
     }
 }
