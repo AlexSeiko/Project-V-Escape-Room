@@ -40,6 +40,14 @@ public class SequencedButtonPress : MonoBehaviour, PuzzleInterface
 
     public bool IsComplete()
     {
+        if (animator)
+        {
+            animator.enabled = true;
+            animator.Play("Rotate Table Door");
+        }
+        if (Source)
+            Source.Play();
+
         return IsPuzzleComplete;
     }
 }
