@@ -16,7 +16,6 @@ public class DeactivateCinemateca : MonoBehaviour
 
         ExitecaComponent?.SetActive(false);
         TeleporterShow?.SetActive(false);
-        TeleporterHide?.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +38,7 @@ public class DeactivateCinemateca : MonoBehaviour
 
         if (TeleporterHide != null)
         {
-            TeleporterHide.SetActive(true);
+            TeleporterHide.SetActive(false);
         }
     }
 }
