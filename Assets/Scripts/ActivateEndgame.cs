@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class Endgame : MonoBehaviour
+public class ActivateEndgame : MonoBehaviour
 {
     [SerializeField] private GameObject TeleporterShow;
-    [SerializeField] private GameObject TeleporterHide;
+
 
     void Start()
     {
@@ -17,14 +17,10 @@ public class Endgame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the CinematecaComponent is not null before deactivating
         if (TeleporterShow != null)
         {
             TeleporterShow.SetActive(true);
-        }
-
-        if (TeleporterHide != null)
-        {
-            TeleporterHide.SetActive(false);
         }
     }
 }
